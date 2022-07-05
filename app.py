@@ -1,3 +1,4 @@
+from curses.panel import new_panel
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
@@ -19,7 +20,18 @@ def index():
     if request.method == "GET":
         return jsonify(players)
     elif request.method == "POST":
-        pass
+        # I want to create a player / Player(data)
+        new_player = request.json
+        # print("*"*10)
+        # print(data)
+        # print("*"*10)
+        last_id = players[-1]['id'] # access last player id
+        new_player['id'] = last_id + 1 
+        players.append(new_player)
+
+        # add the player to my list/ add player to your db
+        # return "player was created"
+        return f"{new_player['name']} was created"
   
 
 if __name__ == "__main__": 

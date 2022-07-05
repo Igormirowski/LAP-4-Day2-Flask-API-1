@@ -1,6 +1,7 @@
 from curses.panel import new_panel
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+from werkzeug.exceptions import BadRequest, NotFound
 
 app = Flask(__name__)
 CORS(app)
@@ -34,13 +35,18 @@ def index():
         return f"{new_player['name']} was created", 201
   
 # Dynamic value / player
-@app.route('/player/<int:player_id>')
+@app.route('/players/<int:player_id>')
 def shwo(player_id):
     try:
         return next(player for player in players if player['id'] == player_id)
     except:
-        # raise BadRequest(f"We do not have player with that id:{player_id}")
-        raise Exception(f"We do not have player with that id:{player_id}")
+        raise BadRequest(f"We do not have player with that id:{player_id}")
+        # raise Exception(f"We do not have player with that id:{player_id}")
+
+# Error 404
+@app.errorhandler(NotFound)
+def handle_404(err):
+    return jsonify({"message": f"Opps {err}"}), 404 
 
 
 

@@ -1,17 +1,18 @@
 # Day 2 Flask framework / APi 
 
 
+## Step by step guide &notes to create API:
 
-- file app.py
-- copy stuff from https://palletsprojects.com/p/flask/
-
+- createfile app.py
+- copy stuff from [link](https://palletsprojects.com/p/flask/)
+```
 from flask import Flask, escape, request
 app = Flask(__name__)
 @app.route('/')
 def hello():
     name = request.args.get("name", "World")
     return f'Hello, {escape(name)}!'m 
-
+```
 - `pipenv shell` (virtual environment) (In case of no access isntall : `pip install pipenv`)
 - `pipenv install flask`
 - Check name of your virtual environment`pipenv --venv` / `pipenv --where`

@@ -60,17 +60,29 @@ dev = "bash -c \"export FLASK_ENV='development' && flask run\" "
 - Debugger PIN number 776-665-337
 - see CRUD routes.md file
 
+- create new route `/players`
+- add jsonify
+- add create player (instead of creating ne route we add options in the same line using method)
+- import request
 
 
+- hoppscotch.io 
+-`pipenv install flask-cors` 
+- import cors:
+```
+from flask_cors import CORS
 
-- hoopscotch.io 
--`pipenv install flask-cors` (may need restart server)
+CORS(app)
+```
+(may need restart server after CORS)
+- hoppscotch check if POST working 
 
+- add dynamic player / dynamic valuse
+- check `http://localhost:5000/players/1` and try id 6
+- add werkzeug BadRequest
 
+- add NotFound
 
-
-- pipenv run start (port 8000)
-- pipenv run pip freeze >> requirements.txt (TO CHHECK !!!)
 ## USEFUL LINKS
 - `https://gunicorn.org/`
 - `https://treyhunner.com/2018/10/asterisks-in-python-what-they-are-and-how-to-use-them/`

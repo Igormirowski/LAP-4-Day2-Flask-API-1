@@ -1,7 +1,8 @@
 from curses.panel import new_panel
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from werkzeug.exceptions import BadRequest, NotFound
+from werkzeug.exceptions import BadRequest, NotFound, InternalServerError
+# from werkzeug import exceptions (2nd way of line 3 see line 48)
 
 app = Flask(__name__)
 CORS(app)
@@ -44,10 +45,15 @@ def shwo(player_id):
         # raise Exception(f"We do not have player with that id:{player_id}")
 
 # Error 404
+# @app.errorhandler(exceptions.NotFound)
 @app.errorhandler(NotFound)
 def handle_404(err):
     return jsonify({"message": f"Opps {err}"}), 404 
 
+
+@app.errorhandler(InternalServerError)
+def handler_500(err):
+    return jsonify({"message": f"It's not you it's us"}), 500
 
 
 if __name__ == "__main__": 

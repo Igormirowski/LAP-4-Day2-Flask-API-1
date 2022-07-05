@@ -22,31 +22,45 @@ def hello():
 - change line 9 to `return f"hello world"`
 - `pipenv install --dev pep8 autopep8`
 - remove request and escape 
-- add if __name__ == "__main__": app.run()
-- Terminal: python app.py (go into link to see)
+- add 
+```
+if __name__ == "__main__": 
+    app.run()
+```
+## Port 5000 issue
+- lsof -i:5000
+- system preferences --> disable AIrplay Receiver
+[link](https://twissmueller.medium.com/resolving-the-problem-of-port-5000-already-being-in-use-dd2fe4bad0be)
+
+- Terminal: `python app.py` (go into link to see)
 
 
 - `pipenv install gunicorn` (only on MAC)
-- `https://gunicorn.org/`
+[link](https://gunicorn.org/)
 - add scripts to pipfile
+
+```
 [scripts]
 start = "gunicorn app:app"
-
+```
 - new file wsgi.py (connect python with web -->gunicorn)
 - wsgi.py : 
+```
 from app import app
 if __name__ == "__main__":
     app.run()
+```
 
-- `pipenv run start`
-- add dev scriptdev = "bash -c \"export FLASK_ENV='development' && flask run\" "
+- `pipenv run start` (see port 8000)
+- add dev script:
+```
+dev = "bash -c \"export FLASK_ENV='development' && flask run\" "
+```
 - `pipenv run dev`
 - Debugger PIN number 776-665-337
-- copy and paste CRUD routes.md
--
+- see CRUD routes.md file
 
-MORE !!!!!!!!!:
-23mis15s comand shift P 
+
 
 
 - hoopscotch.io 

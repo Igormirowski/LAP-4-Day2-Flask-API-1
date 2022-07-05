@@ -12,9 +12,13 @@ players = [
 def hello():
     return f"Hello world"
 
-@app.route('/players')
+@app.route('/players', methods=["GET", "POST"])
 def index():
-    return jsonify(players)
+    if request.method == "GET":
+        return jsonify(players)
+    elif request.method == "POST":
+        pass
+  
 
 if __name__ == "__main__": 
     app.run()

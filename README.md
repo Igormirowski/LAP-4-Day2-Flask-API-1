@@ -83,6 +83,8 @@ CORS(app)
 
 - add NotFound
 
+
+- `pipenv run pip >> requirements.txt` see file 
 ## USEFUL LINKS
 - `https://gunicorn.org/`
 - `https://treyhunner.com/2018/10/asterisks-in-python-what-they-are-and-how-to-use-them/`

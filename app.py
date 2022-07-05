@@ -35,6 +35,8 @@ def index():
         # return "player was created"
         return f"{new_player['name']} was created", 201
   
+
+
 # Dynamic value / player
 @app.route('/players/<int:player_id>')
 def shwo(player_id):
@@ -43,6 +45,8 @@ def shwo(player_id):
     except:
         raise BadRequest(f"We do not have player with that id:{player_id}")
         # raise Exception(f"We do not have player with that id:{player_id}")
+
+
 
 # Error 404
 # @app.errorhandler(exceptions.NotFound)

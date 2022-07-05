@@ -31,8 +31,18 @@ def index():
 
         # add the player to my list/ add player to your db
         # return "player was created"
-        return f"{new_player['name']} was created"
+        return f"{new_player['name']} was created", 201
   
+# Dynamic value / player
+@app.route('/player/<int:player_id>')
+def shwo(player_id):
+    try:
+        return next(player for player in players if player['id'] == player_id)
+    except:
+        # raise BadRequest(f"We do not have player with that id:{player_id}")
+        raise Exception(f"We do not have player with that id:{player_id}")
+
+
 
 if __name__ == "__main__": 
     app.run()

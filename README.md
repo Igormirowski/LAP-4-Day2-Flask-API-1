@@ -60,9 +60,11 @@ dev = "bash -c \"export FLASK_ENV='development' && flask run\" "
 - Debugger PIN number 776-665-337
 - see CRUD routes.md file
 
+## START (setup done)
 - create new route `/players`
+- add array of cats or players (or any data u want)
 - add jsonify
-- add create player (instead of creating ne route we add options in the same line using method)
+- add create player (instead of creating ne route we `add options` in the same line using method)
 - import request
 
 
@@ -79,13 +81,15 @@ CORS(app)
 
 - add dynamic player / dynamic valuse
 - check `http://localhost:5000/players/1` and try id 6
-- add werkzeug BadRequest
+- add werkzeug BadRequest (replace Exception and import on top!)
 
-- add NotFound
+- add NotFound(import)
 
 
 - `pipenv run pip >> requirements.txt` see file 
+
 ## USEFUL LINKS
 - `https://gunicorn.org/`
 - `https://treyhunner.com/2018/10/asterisks-in-python-what-they-are-and-how-to-use-them/`
 - `https://werkzeug.palletsprojects.com/en/1.0.x/exceptions/?highlight=exceptions#module-werkzeug.exceptions`
+- `https://flask.palletsprojects.com/en/2.0.x/api/#flask.Flask.route`

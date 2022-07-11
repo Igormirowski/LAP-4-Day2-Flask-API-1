@@ -2,7 +2,7 @@ from curses.panel import new_panel
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from werkzeug.exceptions import BadRequest, NotFound, InternalServerError
-# from werkzeug import exceptions (2nd way of line 3 see line 48)
+# from werkzeug import exceptions (2nd way of line 3 see line 48)(wideo 57:20)
 
 app = Flask(__name__)
 CORS(app)
@@ -39,7 +39,7 @@ def index():
 
 # Dynamic value / player
 @app.route('/players/<int:player_id>')
-def shwo(player_id):
+def show(player_id):
     try:
         return next(player for player in players if player['id'] == player_id)
     except:

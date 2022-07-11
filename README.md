@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
     name = request.args.get("name", "World")
-    return f'Hello, {escape(name)}!'m 
+    return f'Hello, {escape(name)}!' 
 ```
 - `pipenv shell` (virtual environment) (In case of no access isntall : `pip install pipenv`)
 - `pipenv install flask`
@@ -21,8 +21,8 @@ def hello():
 
 - change line 9 to `return f"hello world"`
 - `pipenv install --dev pep8 autopep8`
-- remove request and escape 
-- add 
+- remove request and escape from import top line 
+- add on bottom
 ```
 if __name__ == "__main__": 
     app.run()
@@ -32,10 +32,10 @@ if __name__ == "__main__":
 - system preferences --> disable AIrplay Receiver
 [link](https://twissmueller.medium.com/resolving-the-problem-of-port-5000-already-being-in-use-dd2fe4bad0be)
 
+# CONTINUE :
 - Terminal: `python app.py` (go into link to see)
 
-
-- `pipenv install gunicorn` (only on MAC)
+- `pipenv install gunicorn` (only on MAC) move to production 
 [link](https://gunicorn.org/)
 - add scripts to pipfile
 
@@ -52,7 +52,7 @@ if __name__ == "__main__":
 ```
 
 - `pipenv run start` (see port 8000)
-- add dev script:
+- add dev script: (to use it instead of python app.py)
 ```
 dev = "bash -c \"export FLASK_ENV='development' && flask run\" "
 ```
